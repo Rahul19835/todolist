@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+}
+:root {
+    --checkbox-color: #ee9ca7;
+    --checkbox-shadow: rgba(238, 156, 167, 0.2);
+    --add-button: #ee9ca7;
+    --add-button-shadow: rgba(238, 156, 167,0.4);
+    --backgroundColor: #10101d;
+    --white:#fff;
+}
+body{
+	font-family: "Inter", sans-serif;
+}
+main{
+	background: linear-gradient(90deg, rgba(227,255,231,1) 0%, rgba(217,231,255,1) 100%);
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.todoContainer{
+	border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 80%;
+    background-color:var(--backgroundColor);
+    padding: 24px;
+    overflow: auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.heading{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 0 12px 0;
+    color: var(--white);
+}
+.title {
+	font-size: 20px;
+    text-transform: uppercase;
+}
+#taskCount{
+	font-size: 14px;
+}
+.taskBox{
+	height: 40px;
+    display: flex;
+}
+.taskBox .taskInput{
+	border-right: none;
+    width: 100%;
+    padding: 0 4px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    background-color: transparent;
+    margin-right: 12px;
+    color: var(--white);
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 16px;
+}
+.taskBox .submitTask{
+	width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: none;
+    background: var(--add-button);
+    color: var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 var(--add-button-shadow);
+    position: relative;
+}
+.taskBox .submitTask:before{
+	content: '+';
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+.taskList{
+	margin-top: 12px;
+}
+.taskList ul li{
+	background-color: #191933;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+.taskList ul li .task-list-item-label {
+    display: flex;
+    align-items: flex-start;
+    color: var(--white);
+    margin-right: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    position: relative;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.task-list-item input {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid var(--white);
+    background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIC0wLjUgMjUgMjUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmZmZmIj48ZyBpZD0iU1ZHUmVwb19iZ0NhcnJpZXIiIHN0cm9rZS13aWR0aD0iMCI+PC9nPjxnIGlkPSJTVkdSZXBvX3RyYWNlckNhcnJpZXIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9nPjxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggZD0iTTUuNSAxMi41TDEwLjE2NyAxN0wxOS41IDgiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPiA8L2c+PC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0;
+    transition: 0.2s;
+    margin-right: 8px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.task-list-item input:hover {
+    border-color: var(--checkbox-color);
+    box-shadow: 0 0 0 3px var(--checkbox-shadow);
+}
+.delete-btn {
+    margin-left: auto;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmZmZmIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA0ODIuNDI4IDQ4Mi40MjkiIHhtbDpzcGFjZT0icHJlc2VydmUiIHN0cm9rZT0iI2ZmZmZmZiI+PGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiPjwvZz48ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvZz48ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxnPiA8Zz4gPHBhdGggZD0iTTM4MS4xNjMsNTcuNzk5aC03NS4wOTRDMzAyLjMyMywyNS4zMTYsMjc0LjY4NiwwLDI0MS4yMTQsMGMtMzMuNDcxLDAtNjEuMTA0LDI1LjMxNS02NC44NSw1Ny43OTloLTc1LjA5OCBjLTMwLjM5LDAtNTUuMTExLDI0LjcyOC01NS4xMTEsNTUuMTE3djIuODI4YzAsMjMuMjIzLDE0LjQ2LDQzLjEsMzQuODMsNTEuMTk5djI2MC4zNjljMCwzMC4zOSwyNC43MjQsNTUuMTE3LDU1LjExMiw1NS4xMTcgaDIxMC4yMzZjMzAuMzg5LDAsNTUuMTExLTI0LjcyOSw1NS4xMTEtNTUuMTE3VjE2Ni45NDRjMjAuMzY5LTguMSwzNC44My0yNy45NzcsMzQuODMtNTEuMTk5di0yLjgyOCBDNDM2LjI3NCw4Mi41MjcsNDExLjU1MSw1Ny43OTksMzgxLjE2Myw1Ny43OTl6IE0yNDEuMjE0LDI2LjEzOWMxOS4wMzcsMCwzNC45MjcsMTMuNjQ1LDM4LjQ0MywzMS42NmgtNzYuODc5IEMyMDYuMjkzLDM5Ljc4MywyMjIuMTg0LDI2LjEzOSwyNDEuMjE0LDI2LjEzOXogTTM3NS4zMDUsNDI3LjMxMmMwLDE1Ljk3OC0xMywyOC45NzktMjguOTczLDI4Ljk3OUgxMzYuMDk2IGMtMTUuOTczLDAtMjguOTczLTEzLjAwMi0yOC45NzMtMjguOTc5VjE3MC44NjFoMjY4LjE4MlY0MjcuMzEyeiBNNDEwLjEzNSwxMTUuNzQ0YzAsMTUuOTc4LTEzLDI4Ljk3OS0yOC45NzMsMjguOTc5SDEwMS4yNjYgYy0xNS45NzMsMC0yOC45NzMtMTMuMDAxLTI4Ljk3My0yOC45Nzl2LTIuODI4YzAtMTUuOTc4LDEzLTI4Ljk3OSwyOC45NzMtMjguOTc5aDI3OS44OTdjMTUuOTczLDAsMjguOTczLDEzLjAwMSwyOC45NzMsMjguOTc5IFYxMTUuNzQ0eiI+PC9wYXRoPiA8cGF0aCBkPSJNMTcxLjE0NCw0MjIuODYzYzcuMjE4LDAsMTMuMDY5LTUuODUzLDEzLjA2OS0xMy4wNjhWMjYyLjY0MWMwLTcuMjE2LTUuODUyLTEzLjA3LTEzLjA2OS0xMy4wNyBjLTcuMjE3LDAtMTMuMDY5LDUuODU0LTEzLjA2OSwxMy4wN3YxNDcuMTU0QzE1OC4wNzQsNDE3LjAxMiwxNjMuOTI2LDQyMi44NjMsMTcxLjE0NCw0MjIuODYzeiI+PC9wYXRoPiA8cGF0aCBkPSJNMjQxLjIxNCw0MjIuODYzYzcuMjE4LDAsMTMuMDctNS44NTMsMTMuMDctMTMuMDY4VjI2Mi42NDFjMC03LjIxNi01Ljg1NC0xMy4wNy0xMy4wNy0xMy4wNyBjLTcuMjE3LDAtMTMuMDY5LDUuODU0LTEzLjA2OSwxMy4wN3YxNDcuMTU0QzIyOC4xNDUsNDE3LjAxMiwyMzMuOTk2LDQyMi44NjMsMjQxLjIxNCw0MjIuODYzeiI+PC9wYXRoPiA8cGF0aCBkPSJNMzExLjI4NCw0MjIuODYzYzcuMjE3LDAsMTMuMDY4LTUuODUzLDEzLjA2OC0xMy4wNjhWMjYyLjY0MWMwLTcuMjE2LTUuODUyLTEzLjA3LTEzLjA2OC0xMy4wNyBjLTcuMjE5LDAtMTMuMDcsNS44NTQtMTMuMDcsMTMuMDd2MTQ3LjE1NEMyOTguMjEzLDQxNy4wMTIsMzA0LjA2Nyw0MjIuODYzLDMxMS4yODQsNDIyLjg2M3oiPjwvcGF0aD4gPC9nPiA8L2c+IDwvZz48L3N2Zz4=");
+    background-size: 16px;
+    background-position: center;
+    cursor: pointer;
+}
+.taskList ul li:last-child{
+	margin-bottom: 0px;
+}
+.task-list-item input:checked {
+    background-size: 10px;
+    border: 1px solid var(--checkbox-color);
+    background-color: var(--checkbox-color);
+}
+.task-list-item input:checked + span {
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-text-decoration: line-through rgba(255, 255, 255, 0.8);
+    text-decoration: line-through rgba(255, 255, 255, 0.8);
+}
